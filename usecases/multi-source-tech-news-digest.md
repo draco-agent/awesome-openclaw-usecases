@@ -17,7 +17,7 @@ A six-source pipeline that runs on a schedule (~30s):
 5. **Reddit** (13 subreddits) — r/MachineLearning, r/LocalLLaMA, r/ChatGPT, etc.
 6. **Web Search** (Tavily or Brave) — 4 topic searches with API key rotation
 
-All articles are merged, URL-deduplicated, and quality-scored (priority source +3, multi-source cross-ref +5, recency +2, engagement +1, Reddit score bonus +1/+3/+5). High-scoring articles can optionally be enriched with full text via Cloudflare Markdown for Agents.
+All articles are merged, URL-deduplicated, and quality-scored (priority source +3, multi-source cross-ref +5, recency +2, engagement +1, Reddit score bonus +1/+3/+5). High-scoring articles can optionally be enriched with full text via [Cloudflare Markdown for Agents](https://developers.cloudflare.com/fundamentals/reference/markdown-for-agents/).
 
 Output sections: 🧠 LLM, 🤖 AI Agent, 🔬 Frontier Tech, 📢 KOL Updates, 📦 GitHub Releases, 🐙 GitHub Trending, 📝 Blog Picks — delivered to Discord, email (with PDF attachment), or Telegram.
 
@@ -60,7 +60,7 @@ All variables are optional — the pipeline works out of the box with whatever s
 - `TWITTER_API_BACKEND` — Backend selection: `auto` (default), `official` (X API v2), or `twitterapiio`
 - `X_BEARER_TOKEN` — Twitter/X API v2 bearer token (required for `official` backend)
 - `TWITTERAPI_IO_KEY` — twitterapi.io API key (required for `twitterapiio` backend)
-- `BRAVE_API_KEY` / `BRAVE_API_KEYS` — Brave Search API key(s), comma-separated for rotation
+- `BRAVE_API_KEY` / `BRAVE_API_KEYS` — Brave Search API key(s); use `BRAVE_API_KEYS` (comma-separated) for automatic rotation, or `BRAVE_API_KEY` for a single key
 - `TAVILY_API_KEY` — Tavily Search API key (preferred over Brave when available)
 - `WEB_SEARCH_BACKEND` — `auto` (default) / `brave` / `tavily`
 - `GITHUB_TOKEN` — GitHub token for higher API rate limits
